@@ -32,8 +32,12 @@ async function loadBitCoin() {
     let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
     let response = await fetch(url);
     let responseAsJson = await response.json();
+    //let tableData = responseAsJson['dataset']['data'][0][1];
+    let tableData = responseAsJson.dataset.data;
 
     bitToday(responseAsJson);
+
+
 
     console.log(responseAsJson);
 }
@@ -44,21 +48,14 @@ function bitToday(responseAsJson) {
 }
 
 async function updateDate() {
-    let start = document.getElementById('startData');
-    let end = document.getElementById('endData');
+    startDate = document.getElementById('startData').value;
+    endDate = document.getElementById('endData').value;
 
-    startDate.push(start.value);
-    endDate.push(end.value);
+    //   console.log(startDate);
+    //   console.log(endDate);
 
-    console.log(startDate);
-    console.log(endDate);
-
-    //   loadBitCoin();
+    loadBitCoin();
 }
-
-
-
-
 
 
 
