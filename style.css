@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    /* background-color: black !important;*/
+    height: 100vh;
+}
+
+.bodyDiv {
+    background-color: black;
+    color: white;
+}
+
+.bodyChild {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bodyChild h1 {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 50px;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.calender {
+    padding: 50px;
+}
+
+.stockToday {
+    margin-top: 100px;
+}
+
+.calender span {
+    text-align: center;
+}
+
+.btn {
+    margin-top: 25px;
+}
+
+#container {
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+}
