@@ -1,12 +1,17 @@
 body {
     margin: 0;
     /* background-color: black !important;*/
-    height: 100vh;
+}
+
+nav {
+    background-color: rgb(255, 255, 255) !important;
 }
 
 .bodyDiv {
-    background-color: black;
+    background-color: rgb(10, 102, 194);
     color: white;
+    margin-top: 50px;
+    height: 100vh;
 }
 
 .bodyChild {
@@ -20,7 +25,7 @@ body {
     font-size: 80px;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .date {
@@ -35,6 +40,7 @@ body {
 
 .stockToday {
     margin-top: 100px;
+    font-size: 30px;
 }
 
 .calender span {
@@ -42,7 +48,7 @@ body {
 }
 
 .btn {
-    margin-top: 25px;
+    margin-top: 85px;
 }
 
 #container {
@@ -50,4 +56,49 @@ body {
     height: 600px;
     margin: 0;
     padding: 0;
+}
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.coin td,
+.coin th {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 600px;
+}
+
+.coin tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.coin tr:hover {
+    background-color: #ddd;
+}
+
+.coin th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(10, 102, 194);
+    color: white;
+    width: 600px;
+}
+
+canvas {
+    padding: 50px;
 }

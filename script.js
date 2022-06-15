@@ -19,48 +19,116 @@ let ID;
 let url;
 let startDate = '';
 let endDate = '';
-let chartValueX = [];
-let chartValueY = [];
 let valueMin;
 let valueMax;
 let valueAvg;
 const bitcoin = 0;
+let bit = [];
+let responseAsJson;
 
 
 async function loadBitCoin() {
 
     let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
     let response = await fetch(url);
-    let responseAsJson = await response.json();
-    //let tableData = responseAsJson['dataset']['data'][0][1];
-    let tableData = responseAsJson.dataset.data;
-
+    responseAsJson = await response.json();
+    bit.push(responseAsJson)
     bitToday(responseAsJson);
-
-
 
     console.log(responseAsJson);
 }
 
 function bitToday(responseAsJson) {
     let bitCoinToday = responseAsJson['dataset']['data'][0][1];
+    let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ', ');
     document.getElementById('bitToday').innerHTML = bitCoinToday;
+    document.getElementById('refresh').innerHTML = refresh;
+
+    console.log(refresh);
+}
+
+function bitTable() {
+    let tableData = document.getElementById('table');
+    let responseData = responseAsJson.dataset.data;
+    tableData.innerHTML = "";
+    tableData.innerHTML += `
+    <table>
+    <tbody>
+    <tr>
+    <th>Price</th>
+    <th>Date</th>
+    </tr> 
+    </tbody>
+    </table>
+    `;
+    for (let i = 0; i < responseData.length; i++) {
+
+        tableData.innerHTML += `
+        <table>
+            <tbody>
+                <tr>
+                    <td>${responseData[i][1].toFixed(2)}&nbsp<b>USD</b></td>
+                    <td>${responseData[i][0]}</td>
+                </tr>
+            </tbody>
+        </table>
+        `;
+
+    }
+
 }
 
 async function updateDate() {
     startDate = document.getElementById('startData').value;
     endDate = document.getElementById('endData').value;
+    await loadBitCoin();
+    chart();
+    bitTable();
 
-    //   console.log(startDate);
-    //   console.log(endDate);
+    document.getElementById('table').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
 
-    loadBitCoin();
+let labelsY = [];
+let labelsX = [];
+
+function chart() {
+    setTimeout(() => {
+        let array = responseAsJson.dataset.data;
+        for (let i = 0; i < array.length; i++) {
+            labelsY.push(array[i][0]);
+            labelsX.push(array[i][1]);
+
+        }
+
+        const data = {
+            labels: labelsY,
+            datasets: [{
+                label: 'Bitcoin',
+                backgroundColor: 'rgb(10,102,194)',
+                borderColor: 'rgb(10, 102, 194)',
+                data: labelsX,
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    }, 100);
+
+
 }
 
 
 
-
-
+/*
 anychart.onDocumentReady(function() {
 
     // create a data set
@@ -126,3 +194,5 @@ anychart.onDocumentReady(function() {
     // initiate drawing the chart
     chart.draw();
 });
+
+*/
