@@ -1,70 +1,159 @@
-body {
-    margin: 0;
-    /* background-color: black !important;*/
-}
-
-nav {
-    background-color: rgb(255, 255, 255) !important;
-}
-
-.bodyDiv {
-    background-color: rgb(10, 102, 194);
-    color: white;
-    margin-top: 50px;
-    height: 100vh;
-}
-
-.bodyChild {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bodyChild h1 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 150px;
-}
-
-.date {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
-.calender {
-    padding: 50px;
-}
-
-.stockToday {
-    margin-top: 100px;
-    font-size: 30px;
-}
-
-.calender span {
-    text-align: center;
-}
-
-.btn {
-    margin-top: 85px;
-}
-
-#container {
-    width: 100%;
-    height: 600px;
-    margin: 0;
-    padding: 0;
-}
-
-.centerDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.coin {
+    body {
+        margin: 0;
+        color: white !important;
+        font-family: 'Raleway';
+    }
+    
+    .navbar {
+        background-color: black!important;
+    }
+    
+    .navbar-brand img {
+        width: 100px;
+    }
+    
+    input {
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+    }
+    
+    .calender span {
+        font-size: 25px;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+    
+    .calender span:hover {
+        opacity: 50%;
+    }
+    
+    .headDiv {
+        background-image: url(img/abstract3.png);
+        background-position: center;
+        height: 100vh;
+    }
+    
+    .bodyDiv {
+        background-image: url(img/abstract1.png);
+        color: white;
+        background-position: center;
+    }
+    
+    .canvasDiv {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(37, 46, 51);
+        padding: 20px;
+        border-radius: 2px;
+    }
+    
+    .centerDiv {
+        background-color: rgb(37, 46, 51);
+    }
+    
+    .chartHolder {
+        border-radius: 5px;
+        background-color: rgb(201, 210, 215);
+        opacity: 90%;
+        width: 80%;
+        margin-top: 50px;
+        padding: 15px;
+    }
+    
+    .history {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: url(img/abstract1.png);
+        color: white;
+        background-position: bottom;
+        height: 500px;
+    }
+    
+    .history h2 {
+        background-color: rgb(51, 53, 55);
+        padding: 20px;
+        border-radius: 5px;
+    }
+    
+    .history h2:hover {
+        opacity: 50%;
+    }
+    
+    .d-none {
+        display: none;
+    }
+    
+    #myChart {
+        color: white !important;
+    }
+    
+    .bodyChild {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .news {
+        border-radius: 5px;
+        background-color: rgb(53, 55, 56);
+        opacity: 90%;
+        width: 80%;
+        padding: 15px;
+        text-align: center;
+        margin: 100px;
+    }
+    
+    .bodyChild h1 {
+        font-size: 80px;
+        font-weight: bold;
+    }
+    
+    .date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+    }
+    
+    .calender {
+        padding: 50px;
+    }
+    
+    .stockToday {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+    
+    .calender span {
+        text-align: center;
+    }
+    
+    .btn {
+        margin-top: 5px;
+        width: 150px;
+        height: 50px;
+        background-color: rgb(51, 53, 55) !important;
+    }
+    
+    #container {
+        width: 100%;
+        height: 600px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .centerDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*.coin {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -97,8 +186,4 @@ nav {
     background-color: rgb(10, 102, 194);
     color: white;
     width: 600px;
-}
-
-canvas {
-    padding: 50px;
-}
+}*/

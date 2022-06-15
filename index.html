@@ -17,36 +17,56 @@
 
 <body id="body" onload="includeHTML(); loadBitCoin()">
     <div w3-include-html="templates/header.html"></div>
+    <div class="headDiv">
+
+    </div>
     <div class="bodyDiv">
         <div class="bodyChild">
 
-            <h1>NASDAQ TODAY</h1>
+            <div class="news">
+                <h1>Bitcoin TODAY</h1>
 
-            <div class="stockToday">Todays average Bitcoin course : <b id="bitToday"></b> USD</div>
-            <div class="stockToday">Last update : <b id="refresh"></b></div>
-            <button onclick="updateDate()" class="btn btn-dark">Loading Previous Data</button>
+                <div class="stockToday">Todays average Bitcoin course : <b id="bitToday"></b> USD</div>
+                <div class="stockToday">Last update : <b id="refresh"></b>&nbspMEZ</div>
+                <div class="stockToday">Oldest available update : <b id="update"></b></div>
+                <div class="stockToday">Newest update available update : <b id="newest"></b></div>
+            </div>
+
 
         </div>
+
+
+
+
+
+    </div>
+    <div class="history">
+        <h2>Historic exchange rates: BTC / USD</h2>
         <div class="date">
+            <button onclick="updateDate()" class="btn btn-secondary">Loading</button>
             <div class="calender">
-                <span>Start Date</span><br>
+                <span>Start Date</span>
                 <input id="startData" type="date" required data-placeholder="tt.mm.jjjj">
             </div>
 
             <div class="calender">
-                <span>End Date</span><br>
+                <span>End Date</span>
                 <input id="endData" type="date" required placeholder="tt.mm.jjjj">
-            </div>
-        </div>
 
-        <div>
+            </div>
 
         </div>
 
     </div>
 
 
-    <canvas id="myChart"></canvas>
+    <div id="canvas" class="canvasDiv d-none">
+        <div class="chartHolder">
+            <canvas id="myChart"></canvas>
+        </div>
+
+    </div>
+
 
 
     <div class="centerDiv">

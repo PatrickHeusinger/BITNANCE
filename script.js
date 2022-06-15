@@ -40,9 +40,16 @@ async function loadBitCoin() {
 
 function bitToday(responseAsJson) {
     let bitCoinToday = responseAsJson['dataset']['data'][0][1];
-    let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ', ');
+    let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ', ').replace('Z', '').replace('.282', '');
+    let available = responseAsJson['dataset']['oldest_available_date'];
+    let newest = responseAsJson['dataset']['newest_available_date'];
+
+
+
     document.getElementById('bitToday').innerHTML = bitCoinToday;
     document.getElementById('refresh').innerHTML = refresh;
+    document.getElementById('update').innerHTML = available;
+    document.getElementById('newest').innerHTML = newest;
 
     console.log(refresh);
 }
@@ -52,7 +59,7 @@ function bitTable() {
     let responseData = responseAsJson.dataset.data;
     tableData.innerHTML = "";
     tableData.innerHTML += `
-    <table>
+    <table class="table  table-dark">
     <tbody>
     <tr>
     <th>Price</th>
@@ -64,7 +71,7 @@ function bitTable() {
     for (let i = 0; i < responseData.length; i++) {
 
         tableData.innerHTML += `
-        <table>
+        <table class="table table-dark table-hover">
             <tbody>
                 <tr>
                     <td>${responseData[i][1].toFixed(2)}&nbsp<b>USD</b></td>
@@ -84,7 +91,7 @@ async function updateDate() {
     await loadBitCoin();
     chart();
     bitTable();
-
+    document.getElementById('canvas').classList.remove('d-none');
     document.getElementById('table').scrollIntoView({
         behavior: 'smooth'
     });
@@ -96,9 +103,14 @@ let labelsX = [];
 function chart() {
     setTimeout(() => {
         let array = responseAsJson.dataset.data;
-        for (let i = 0; i < array.length; i++) {
+        //    for (let i = 0; i < array.length; i++) {
+        //        labelsY.push(array[i][0]);
+        //        labelsX.push(array[i][1]);
+        for (let i = array.length - 1; i > 0; i--) {
             labelsY.push(array[i][0]);
             labelsX.push(array[i][1]);
+
+
 
         }
 
@@ -111,6 +123,7 @@ function chart() {
                 data: labelsX,
             }]
         };
+
 
         const config = {
             type: 'line',
