@@ -12,24 +12,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
-    <title>Nasdaq Bitcoins</title>
+    <title>BITNANCE</title>
 </head>
 
-<body id="body" onload="includeHTML(); loadBitCoin()">
+<body id="body" onload="includeHTML();loadBitCoin()">
     <div w3-include-html="templates/header.html"></div>
     <div class="headDiv">
+        <div class="header">
+            <img src="img/triangle.png">
+            <h1 class="headline">BITNANCE</h1><br>
+        </div>
+
+
+        <div class="icons">
+            <div class="navigation">
+                <img src="img/bitCollect.png"><br><span>Trading</span>
+            </div>
+            <div class="navigation">
+                <img src="img/bitPro.png"><br><span>Stock</span>
+            </div>
+            <div onclick="scrollToExchange()" class="navigation">
+                <img src="img/bitEx.png"><br><span>Exchange</span>
+            </div>
+        </div>
+
 
     </div>
     <div class="bodyDiv">
         <div class="bodyChild">
 
             <div class="news">
-                <h1>Bitcoin TODAY</h1>
+                <h2>Bitboard</h2>
 
                 <div class="stockToday">Todays average Bitcoin course : <b id="bitToday"></b> USD</div>
                 <div class="stockToday">Last update : <b id="refresh"></b>&nbspMEZ</div>
                 <div class="stockToday">Oldest available update : <b id="update"></b></div>
-                <div class="stockToday">Newest update available update : <b id="newest"></b></div>
+                <div class="stockToday">Newest available update : <b id="newest"></b></div>
             </div>
 
 
@@ -40,10 +58,28 @@
 
 
     </div>
-    <div class="history">
-        <h2>Historic exchange rates: BTC / USD</h2>
+
+
+    <div id="canvas" class="canvasDiv d-none">
+        <div class="buttonDiv">
+            <button onclick="showChartOne()" class="btn btn-secondary">Chart 1</button>
+            <button onclick="showChartTwo()" class="btn btn-secondary">Chart 2</button>
+            <button onclick="showTable()" class="btn btn-secondary">Table</button>
+        </div>
+
+        <div class="chartHolder">
+            <canvas id="myChart"></canvas>
+            <canvas id="myChartBar" class="d-none"></canvas>
+            <div id="table" class="coin d-none"> </div>
+        </div>
+    </div>
+
+
+    <div id="history" class="history">
+        <h2>Exchange rates: BTC / USD</h2>
+        <button onclick="updateDate()" class="btn btn-secondary">Loading</button>
         <div class="date">
-            <button onclick="updateDate()" class="btn btn-secondary">Loading</button>
+
             <div class="calender">
                 <span>Start Date</span>
                 <input id="startData" type="date" required data-placeholder="tt.mm.jjjj">
@@ -59,23 +95,35 @@
 
     </div>
 
+    <!--
+ <div id="exchange" class="centerDiv d-none">
 
-    <div id="canvas" class="canvasDiv d-none">
-        <div class="chartHolder">
-            <canvas id="myChart"></canvas>
+        <div class="coin d-none" id="table"></div>
+
+    </div>
+
+
+
+-->
+
+    <div id="convertSection" class="convertDiv">
+        <h2>Bitcoin Converter</h2>
+        <div class="currencyConverter">
+
+            <div class="currencyField">
+
+                <input oninput="convert()" id="curr_usd" type="text" required>
+                <span>BIT</span>
+            </div>
+            <img src="img/converter.png">
+            <div class="currencyField">
+
+                <input id="curr_bitcoin" type="text">
+                <span>USD</span>
+            </div>
+
         </div>
-
     </div>
-
-
-
-    <div class="centerDiv">
-
-        <div class="coin" id="table"></div>
-
-    </div>
-
-
 
 
 
