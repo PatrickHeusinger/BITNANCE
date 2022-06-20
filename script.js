@@ -73,7 +73,7 @@ async function loadBitCoin() {
 
 function bitToday(responseAsJson) {
     let bitCoinToday = responseAsJson['dataset']['data'][0][1];
-    let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ' at ').replace('Z', '').slice(0, -4);
+    let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ', ').replace('Z', '').slice(0, -4);
     let available = responseAsJson['dataset']['oldest_available_date'];
     let newest = responseAsJson['dataset']['newest_available_date'];
     document.getElementById('bitToday').innerHTML = bitCoinToday.toLocaleString('en-US');
