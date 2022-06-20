@@ -253,6 +253,7 @@
     th,
     td {
         color: gray;
+        width: 200px;
     }
     
     input {
