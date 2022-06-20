@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <title>BITNANCE</title>
 </head>
@@ -79,16 +79,21 @@
     <div id="history" class="history">
         <h2>Exchange rates: BTC / USD</h2>
         <button onclick="updateDate()" class="btn btn-secondary">Loading</button>
+
+        <div id="progress" class="spinner-border text-info d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
         <div class="date">
 
             <div class="calender">
-                <span>Start Date</span>
-                <input id="startData" type="date" min="2014-04-15" required data-placeholder="tt.mm.jjjj">
+                <span>Start Date</span><br>
+                <input id="startData" type="date" min="2014-04-15" required placeholder="2022-01-01">
             </div>
 
             <div class="calender">
-                <span>End Date</span>
-                <input id="endData" type="date" min="2014-04-15" required placeholder="tt.mm.jjjj">
+                <span>End Date</span><br>
+                <input id="endData" type="date" min="2014-04-15" required placeholder="2022-01-01">
 
             </div>
 

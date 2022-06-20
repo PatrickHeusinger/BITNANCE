@@ -202,6 +202,10 @@
         font-weight: bold;
     }
     
+    .spinner-border {
+        margin-top: 20px;
+    }
+    
     .date {
         display: flex;
         justify-content: center;
