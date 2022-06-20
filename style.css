@@ -4,24 +4,32 @@
         font-family: 'Raleway';
     }
     
-    .navbar {
-        background-color: black!important;
+    .navbar-toggler {
+        margin-top: 30px;
+        margin-right: 30px;
     }
     
     .navbar-brand img {
         width: 100px;
     }
     
+    .headline {
+        font-size: 50px;
+        padding-top: 30px;
+    }
+    
     .header {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        width: 200px;
     }
     
     .header img {
-        width: 150px;
-        margin-top: 100px;
+        width: 50px;
+        padding-top: 30px;
         margin-right: 20px;
+        margin-left: 50px;
     }
     
     input {
@@ -29,6 +37,10 @@
         height: 50px;
         text-align: center;
         border-radius: 5px;
+        border: none;
+    }
+    
+    input {
         border: none;
     }
     
@@ -44,14 +56,11 @@
     
     .headDiv {
         background-image: url(img/wallpaper.png);
-        background-position: center;
+        background-size: 100%;
+        background-position: top;
+        background-repeat: no-repeat;
         height: 100vh;
         text-align: center;
-    }
-    
-    .headline {
-        font-size: 150px;
-        padding-top: 80px;
     }
     
     .icons {
@@ -72,6 +81,7 @@
         margin-right: 15px;
         padding-bottom: 20px;
         box-shadow: 0px 0px 1px rgb(211 206 206 / 50%);
+        background-color: rgba(255, 255, 255, 0.244);
     }
     
     .navigation img {
@@ -83,7 +93,7 @@
     }
     
     .navigation span {
-        font-size: 40px;
+        font-size: 30px;
     }
     
     .underheadline {
@@ -125,6 +135,7 @@
         width: 80%;
         padding: 15px;
         margin-top: 50px;
+        box-shadow: 0px 0px 1px rgb(211 206 206 / 50%);
     }
     
     .history {
@@ -169,6 +180,7 @@
         padding: 15px;
         text-align: center;
         margin: 100px;
+        color: rgb(4, 19, 105);
     }
     
     .bodyChild h1 {
@@ -221,6 +233,7 @@
     
     table {
         color: gray;
+        text-align: center;
     }
     
     th,
@@ -253,6 +266,7 @@
     .currencyField span {
         margin: 10px;
         font-size: 20px;
+        width: 100px;
     }
     
     .calc {
@@ -268,4 +282,22 @@
     .convertDiv h2 {
         color: rgb(4, 19, 105);
         padding-top: 50px;
+    }
+    
+    .exchangeImg:hover {
+        cursor: pointer;
+    }
+    
+    .exchangeOfToday span {
+        color: rgb(4, 19, 105);
+    }
+    
+    .aboutBitcoin {
+        padding: 50px;
+        color: rgb(4, 19, 105);
+    }
+    
+    footer {
+        height: 200px;
+        background-color: rgb(4, 19, 105);
     }

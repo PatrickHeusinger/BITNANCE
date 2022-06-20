@@ -17,6 +17,7 @@
 
 <body id="body" onload="includeHTML();loadBitCoin()">
     <div w3-include-html="templates/header.html"></div>
+
     <div class="headDiv">
         <div class="header">
             <img src="img/triangle.png">
@@ -25,14 +26,14 @@
 
 
         <div class="icons">
-            <div class="navigation">
-                <img src="img/bitCollect.png"><br><span>Trading</span>
+            <div onclick="scrollToAbout()" class="navigation">
+                <img src="img/bitCollect.png"><br><span>About Bitcoin</span>
             </div>
-            <div class="navigation">
-                <img src="img/bitPro.png"><br><span>Stock</span>
+            <div onclick="scrollToHistory()" class="navigation">
+                <img src="img/bitPro.png"><br><span>Stock Market</span>
             </div>
             <div onclick="scrollToExchange()" class="navigation">
-                <img src="img/bitEx.png"><br><span>Exchange</span>
+                <img src="img/bitEx.png"><br><span>Currency Converter</span>
             </div>
         </div>
 
@@ -42,7 +43,7 @@
         <div class="bodyChild">
 
             <div class="news">
-                <h2>Bitboard</h2>
+                <h2>Update Board</h2>
 
                 <div class="stockToday">Todays average Bitcoin course : <b id="bitToday"></b> USD</div>
                 <div class="stockToday">Last update : <b id="refresh"></b>&nbspMEZ</div>
@@ -108,14 +109,14 @@
 
     <div id="convertSection" class="convertDiv">
         <h2>Bitcoin Converter</h2>
-        <div class="currencyConverter">
+        <div id=changeConverter class="currencyConverter">
 
             <div class="currencyField">
 
-                <input oninput="convert()" id="curr_usd" type="text" required>
+                <input oninput="convertX()" id="curr_usd" type="text" required>
                 <span>BIT</span>
             </div>
-            <img src="img/converter.png">
+            <img onclick="changeY()" class="exchangeImg" src="img/converter.png">
             <div class="currencyField">
 
                 <input id="curr_bitcoin" type="text">
@@ -123,11 +124,48 @@
             </div>
 
         </div>
+
+        <div>
+            <div class="exchangeOfToday">
+                <span>The current exchange rate of 1 BTC is <b id="exchangeRate"></b>&nbspUSD</span><br>
+                <span>Data refreshed&nbsp<span id="exchangeDate"></span>&nbspMEZ</span>
+            </div>
+        </div>
     </div>
 
 
+    <div id="about" class="aboutBitcoin">
+        <h2>BTC Market Information</h2>
+        <ul>Popularity #1</ul>
+        <ul>Market Cap $ 388.964.748.911</ul>
+        <ul>Total Supply 19.071.762</ul>
+        <ul>Max Supply 21.000.000</ul>
+        <ul>Circulation Supply 19.071.762</ul>
+        <ul>Issue Date 2008-11-01</ul>
+
+        <hr>
+
+        <h2>About Bitcoin (BTC)</h2>
+        <p> Bitcoin is one of the most popular cryptocurrencies in the market. First introduced in 2009 by Satoshi Nakamoto, Bitcoin has held the crypto market’s number one spot according to market capitalization. Bitcoin paved the way for many existing altcoins
+            in the market and marked a pivotal moment for digital payment solutions. As the world’s first cryptocurrency, Bitcoin has come a long way in terms of its value. However, one does not have to buy an entire bitcoin as bitcoins can be divided
+            into small units called satoshis, named after the creator. A satoshi is equivalent to 0.00000001 bitcoin. There is no physical BTC token so you can think of bitcoin as digital money. Bitcoin transactions are fully transparent and can’t be
+            censored. You can send money to anyone in the world with ease. It’s a financial system backed by thousands of computers, known as ‘nodes’, around the world, instead of a single central bank or government, i.e. hence the term ‘decentralization’.
+            Bitcoin Upgrades Because Bitcoin is decentralized and community-driven, many upgrades to Bitcoin come in the form of formal proposals called Bitcoin Improvement Proposals, or BIPs. This ensures that the software is always undergoing upgrades
+            that can further contribute to the community’s needs. Anyone can propose a BIP, and the community will reject or approve of the BIP collectively. One major upgrade to Bitcoin’s consensus protocol is the SegWit Upgrade, proposed in BIP 141
+            and designed to help the bitcoin scale to support more transactions to meet growing demand. BIPs like these change Bitcoin’s consensus rules, resulting in forks. Bitcoin Forks Forks are the points where software is copied and modified, resulting
+            in two chains with a shared original chain. There are two types of forks–soft and hard forks. Soft forks are upgrades that still allow un-upgraded nodes to interact with upgraded nodes. Hard forks are upgrades that do not allow un-upgraded
+            nodes to interact with upgraded ones. Bitcoin Cash is an example of a hard fork of Bitcoin. Because Bitcoin is decentralized, it is not subjected to inflation or any monetary policies created by any central banks or government. Instead, there
+            will only ever be 21 million BTC in existence. Common Bitcoin Misconceptions Bitcoin is just a passing phase. Bitcoin and blockchain technology introduce solutions for real-world issues, seeking to help the unbanked population, combat counterfeiting
+            and improve cross-border transactions to name a few. Even if we disregard the notion of bitcoin as a speculative asset or store of value, it is likely here to stay and disrupt many sectors. Bitcoins can be copied and pasted, making them easy
+            to counterfeit. No, thanks to the Bitcoin protocol, your bitcoin cannot be copied. The word ‘crypto’ in ‘cryptocurrency’ comes from the word ‘cryptography’, a technique that allows for secure communication, meaning that it is impossible to
+            counterfeit bitcoin, unlike fiat. In fact, Bitcoin solves the issue of double-spending, a loophole in traditional digital cash that allows a user to spend the same amount of funds twice.</p>
 
 
+
+
+
+    </div>
+    <footer></footer>
 </body>
 
 </html>

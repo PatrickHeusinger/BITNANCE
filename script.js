@@ -59,8 +59,8 @@ let responseAsJson;
 }*/
 
 async function loadBitCoin() {
-
-    let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
+    let url = `https://data.nasdaq.com/api/v3/datasets/BITFINEX/BTCUSD?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
+    //  let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
     let response = await fetch(url);
     responseAsJson = await response.json();
     bit.push(responseAsJson);
@@ -79,7 +79,9 @@ function bitToday(responseAsJson) {
     document.getElementById('refresh').innerHTML = refresh;
     document.getElementById('update').innerHTML = available;
     document.getElementById('newest').innerHTML = newest;
-
+    document.getElementById('exchangeRate').innerHTML = bitCoinToday.toLocaleString('en-US');
+    document.getElementById('exchangeDate').innerHTML = refresh;
+    // document.getElementById('exchangeNewDate').innerHTML = newest;
     console.log(refresh);
 }
 
@@ -91,8 +93,12 @@ function bitTable() {
     <table class="table">
     <tbody>
     <tr>
-    <th>Price</th>
     <th>Date</th>
+    <th>Low</th>
+    <th>Mid</th>
+    <th>High</th>
+    <th>Last</th>
+    
     </tr> 
     </tbody>
     </table>
@@ -102,9 +108,12 @@ function bitTable() {
         <table class="table">
             <tbody>
                 <tr>
-                
-                    <td>${responseData[i][1].toFixed(2)}&nbsp<b>USD</b></td>
-                    <td>${responseData[i][0]}</td>
+                <td>${responseData[i][0]}</td>
+                <td>${responseData[i][2].toFixed(2)}</td>
+                <td>${responseData[i][3].toFixed(2)}</td>
+                <td>${responseData[i][1].toFixed(2)}</td>
+                <td>${responseData[i][4].toFixed(2)}</td>
+                    
                 </tr>
             </tbody>
         </table>
@@ -122,7 +131,7 @@ async function updateDate() {
     chartBar();
     bitTable();
     document.getElementById('canvas').classList.remove('d-none');
-    document.getElementById('exchange').classList.remove('d-none');
+    //   document.getElementById('exchange').classList.remove('d-none');
     document.getElementById('canvas').scrollIntoView({
         behavior: 'smooth'
     });
@@ -228,10 +237,57 @@ function chartBar() {
 }
 
 
-function convert() {
+function convertX() {
     let x = document.getElementById('curr_usd').value * bitCurrency;
     x = Math.round(x * 100) / 100;
     document.getElementById('curr_bitcoin').value = x.toLocaleString('en-US');
+}
+
+function convertY() {
+    let y = document.getElementById('curr_usd').value / bitCurrency;
+    document.getElementById('curr_bitcoin').value = y.toFixed(6).replace('.', ',');
+}
+
+function changeY() {
+    let change = document.getElementById('changeConverter');
+    change.innerHTML = '';
+    change.innerHTML = `
+
+<div class="currencyField">
+
+<input oninput="convertY()" id="curr_usd" type="text" required>
+<span>USD</span>
+</div>
+<img onclick="changeX()"class="exchangeImg" src="img/converter.png">
+<div class="currencyField">
+
+<input id="curr_bitcoin" type="text">
+<span>BIT</span>
+</div>
+
+
+`;
+}
+
+function changeX() {
+    let change = document.getElementById('changeConverter');
+    change.innerHTML = '';
+    change.innerHTML = `
+
+<div class="currencyField">
+
+<input oninput="convertX()" id="curr_usd" type="text" required>
+<span>BIT</span>
+</div>
+<img onclick="changeY()"class="exchangeImg" src="img/converter.png">
+<div class="currencyField">
+
+<input id="curr_bitcoin" type="text">
+<span>USD</span>
+</div>
+
+
+`;
 }
 
 function scrollToExchange() {
@@ -239,6 +295,19 @@ function scrollToExchange() {
         behavior: 'smooth'
     });
 }
+
+function scrollToAbout() {
+    document.getElementById('about').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+function scrollToHistory() {
+    document.getElementById('history').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
 
 
 
