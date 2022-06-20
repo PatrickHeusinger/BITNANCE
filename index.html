@@ -21,7 +21,7 @@
     <div class="headDiv">
         <div class="header">
             <img src="img/triangle.png">
-            <h1 class="headline">BITNANCE</h1><br>
+            <h1 class="headline">BITNANCE</h1>
         </div>
 
 
@@ -45,7 +45,7 @@
             <div class="news">
                 <h2>Update Board</h2>
 
-                <div class="stockToday">Todays average Bitcoin course : <b id="bitToday"></b> USD</div>
+                <div class="stockToday">Last available Exchange rate : <b id="bitToday"></b> USD</div>
                 <div class="stockToday">Last update : <b id="refresh"></b>&nbspMEZ</div>
                 <div class="stockToday">Oldest available update : <b id="update"></b></div>
                 <div class="stockToday">Newest available update : <b id="newest"></b></div>
@@ -83,12 +83,12 @@
 
             <div class="calender">
                 <span>Start Date</span>
-                <input id="startData" type="date" required data-placeholder="tt.mm.jjjj">
+                <input id="startData" type="date" min="2014-04-15" required data-placeholder="tt.mm.jjjj">
             </div>
 
             <div class="calender">
                 <span>End Date</span>
-                <input id="endData" type="date" required placeholder="tt.mm.jjjj">
+                <input id="endData" type="date" min="2014-04-15" required placeholder="tt.mm.jjjj">
 
             </div>
 
@@ -165,7 +165,9 @@
 
 
     </div>
-    <footer></footer>
+    <footer>
+        <div w3-include-html="templates/footer.html"></div>
+    </footer>
 </body>
 
 </html>

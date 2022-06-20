@@ -17,6 +17,8 @@ async function includeHTML() {
 const API_KEY = '6zXQ5n3xF-ZKs-mHV_yZ';
 let ID;
 let url;
+let today = new Date();
+today.setDate(new Date().getDate() - 1);
 let startDate = '';
 let endDate = '';
 let valueMin;
