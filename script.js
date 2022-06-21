@@ -344,9 +344,13 @@ $(function() {
     $('#startData').attr('max', minDate);
 
 });
+setTimeout(() => {
+    const picker = document.getElementById('endData');
+    picker.addEventListener('change', checkDatePicker);
 
-const picker = document.getElementById('endData');
-picker.addEventListener('oninput', checkDatePicker);
+}, 2000);
+
+
 
 function checkDatePicker() {
     if ($('#startData').val() != "" && $('#endData').val() != "") {

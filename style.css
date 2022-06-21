@@ -1,7 +1,7 @@
     body {
         margin: 0;
         color: white !important;
-        font-family: 'Raleway';
+        font-family: 'Raleway'!important;
     }
     
     .navbar-toggler {
@@ -279,6 +279,7 @@
         margin: 20px 0px;
         background-color: white;
         color: gray;
+        border-radius: 5px;
     }
     
     .currencyField span {
