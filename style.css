@@ -13,10 +13,6 @@
         font-weight: bold;
     }
     
-    input {
-        outline: none;
-    }
-    
     .offcanvas {
         width: 150px !important;
         background-color: rgb(59, 228, 213) !important;
@@ -48,11 +44,7 @@
         height: 50px;
         text-align: center;
         border-radius: 5px;
-        border: none;
-    }
-    
-    input {
-        border: none;
+        outline: none;
     }
     
     .calender span {
@@ -135,9 +127,8 @@
     }
     
     .coin {
-        margin: 100px;
         padding: 50px 100px;
-        box-shadow: 0 2px 4px rgb(211 206 206 / 50%);
+        box-shadow: 0 2px 4px rgba(66, 65, 65, 0.5);
     }
     
     .chartHolder {
@@ -246,13 +237,13 @@
     }
     
     table {
-        color: gray;
         text-align: center;
     }
     
     th,
     td {
-        color: gray;
+        text-align: center;
+        color: rgb(4, 19, 105);
         width: 200px;
     }
     
@@ -401,13 +392,13 @@
             padding-top: 25px;
             margin-left: 0px;
         }
-        .responsiveCenter {
-            display: flex;
-            justify-content: center;
-        }
         .navbar-toggler {
             margin-right: 10px;
             margin-top: 10px;
+        }
+        .responsiveCenter {
+            display: flex;
+            justify-content: center;
         }
         .icons {
             flex-direction: column;

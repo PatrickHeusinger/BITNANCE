@@ -193,8 +193,8 @@ function chart() {
             labels: labelsY,
             datasets: [{
                 label: 'Bitcoin',
-                backgroundColor: 'rgb(10,102,194)',
-                borderColor: 'rgb(10, 102, 194)',
+                backgroundColor: 'rgb(4,19,105)',
+                borderColor: 'rgb(4,19,105)',
                 data: labelsX,
             }]
         };
@@ -203,7 +203,20 @@ function chart() {
         const config = {
             type: 'line',
             data: data,
-            options: {}
+            options: {
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'rgb(4,19,105)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'rgb(4,19,105)'
+                        }
+                    }
+                }
+            }
         };
 
         myChart = new Chart(
@@ -240,8 +253,8 @@ function chartBar() {
             labels: labelsBarY,
             datasets: [{
                 label: 'Bitcoin',
-                backgroundColor: 'rgb(10,102,194)',
-                borderColor: 'rgb(10, 102, 194)',
+                backgroundColor: 'rgb(4,19,105)',
+                borderColor: 'rgb(4,19,105)',
                 data: labelsBarX,
             }]
         };
@@ -250,7 +263,20 @@ function chartBar() {
         const config = {
             type: 'bar',
             data: data,
-            options: {}
+            options: {
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'rgb(4,19,105)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'rgb(4,19,105)'
+                        }
+                    }
+                }
+            }
         };
 
         myChartBar = new Chart(
