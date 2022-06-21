@@ -25,6 +25,8 @@ let valueMax;
 let valueAvg;
 let bitCurrency;
 const bitcoin = 0;
+let myChart = null;
+let myChartBar = null;
 let currentDay;
 let bit = [];
 let bit2 = [];
@@ -186,6 +188,8 @@ function chart() {
 
         }
 
+
+
         const data = {
             labels: labelsY,
             datasets: [{
@@ -202,10 +206,17 @@ function chart() {
             data: data,
             options: {}
         };
-        const myChart = new Chart(
+
+        if (myChart != null) {
+            myChart.destroy();
+        };
+
+        myChart = new Chart(
             document.getElementById('myChart'),
             config
         );
+
+
     }, 100);
 
 
@@ -227,6 +238,8 @@ function chartBar() {
 
         }
 
+
+
         const data = {
             labels: labelsBarY,
             datasets: [{
@@ -244,8 +257,11 @@ function chartBar() {
             options: {}
         };
 
+        if (myChartBar != null) {
+            myChartBar.destroy();
+        };
 
-        const myChart = new Chart(
+        myChartBar = new Chart(
             document.getElementById('myChartBar'),
             config
         );
