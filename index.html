@@ -72,7 +72,7 @@
 
     <div id="history" class="history">
         <h2>Exchange rates: BTC / USD</h2>
-        <button onclick="updateDate()" class="btn btn-secondary">Loading</button>
+        <button id="submit" onclick="updateDate()" class="btn btn-secondary" disabled>Loading</button>
 
         <div id="progress" class="spinner-border text-info d-none" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -82,13 +82,12 @@
 
             <div class="calender">
                 <span>Start Date</span><br>
-                <input id="startData" type="date" min="2014-04-15" required placeholder="2022-01-01">
+                <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="startData" />
             </div>
 
             <div class="calender">
                 <span>End Date</span><br>
-                <input id="endData" type="date" min="2014-04-15" required placeholder="2022-01-01">
-
+                <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="endData" />
             </div>
 
         </div>

@@ -187,11 +187,9 @@
     }
     
     .news {
-        box-shadow: 0 2px 4px rgb(211 206 206 / 50%);
-        background-color: rgb(59, 228, 213);
-        opacity: 90%;
-        width: 80%;
+        box-shadow: 0 2px 4px rgba(48, 47, 47, 0.5);
         padding: 15px;
+        width: 50%;
         text-align: center;
         margin: 100px;
         color: rgb(4, 19, 105);
@@ -234,6 +232,7 @@
         width: 150px;
         height: 50px;
         background-color: rgb(4, 19, 105) !important;
+        z-index: 9;
     }
     
     #container {
@@ -356,13 +355,14 @@
     }
     
     .impressum {
-        background-color: rgb(4, 19, 105);
+        background-color: white;
+        color: rgb(4, 19, 105);
         padding: 50px;
     }
     
     .impressum a {
         text-decoration: none;
-        color: white;
+        color: rgb(4, 19, 105);
     }
     
     .impressum a:hover {
@@ -374,7 +374,8 @@
     }
     
     .datenschutz {
-        background-color: rgb(4, 19, 105);
+        background-color: white;
+        color: rgb(4, 19, 105);
         padding: 50px;
     }
     
@@ -383,7 +384,7 @@
     }
     
     .datenschutz a {
-        color: white;
+        color: rgb(4, 19, 105);
     }
     
     @media(max-width:1000px) {

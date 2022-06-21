@@ -18,7 +18,6 @@ const API_KEY = '6zXQ5n3xF-ZKs-mHV_yZ';
 let ID;
 let url;
 let today = new Date();
-today.setDate(new Date().getDate() - 1);
 let startDate = '';
 let endDate = '';
 let valueMin;
@@ -26,6 +25,7 @@ let valueMax;
 let valueAvg;
 let bitCurrency;
 const bitcoin = 0;
+let currentDay;
 let bit = [];
 let bit2 = [];
 let labelsY = [];
@@ -33,6 +33,7 @@ let labelsX = [];
 let labelsBarX = [];
 let labelsBarY = [];
 let responseAsJson;
+
 
 
 
@@ -67,7 +68,7 @@ async function loadBitCoin() {
     responseAsJson = await response.json();
     bit.push(responseAsJson);
     bitToday(responseAsJson);
-    setPlaceholder();
+
     console.log(responseAsJson);
 }
 
@@ -76,6 +77,7 @@ function bitToday(responseAsJson) {
     let refresh = responseAsJson['dataset']['refreshed_at'].replace('T', ', ').replace('Z', '').slice(0, -4);
     let available = responseAsJson['dataset']['oldest_available_date'];
     let newest = responseAsJson['dataset']['newest_available_date'];
+    currentDay = newest
     document.getElementById('bitToday').innerHTML = bitCoinToday.toLocaleString('en-US');
     bitCurrency = bitCoinToday;
     document.getElementById('refresh').innerHTML = refresh;
@@ -209,6 +211,8 @@ function chart() {
 
 }
 
+
+
 function chartBar() {
     setTimeout(() => {
         let array = responseAsJson.dataset.data;
@@ -239,6 +243,8 @@ function chartBar() {
             data: data,
             options: {}
         };
+
+
         const myChart = new Chart(
             document.getElementById('myChartBar'),
             config
@@ -339,7 +345,13 @@ $(function() {
 
 });
 
-function setPlaceholder() {
-    document.getElementById("startData").placeholder = "start";
-    document.getElementById("endData").placeholder = "end";
+const picker = document.getElementById('endData');
+picker.addEventListener('oninput', checkDatePicker);
+
+function checkDatePicker() {
+    if ($('#startData').val() != "" && $('#endData').val() != "") {
+        $('#submit').removeAttr('disabled');
+    } else {
+        $('#submit').attr('disabled', true);
+    }
 }
