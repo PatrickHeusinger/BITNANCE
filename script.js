@@ -175,20 +175,19 @@ function showTable() {
 
 
 function chart() {
+    if (myChart != null) {
+        myChart.destroy();
+        labelsX = [];
+        labelsY = [];
+
+    };
     setTimeout(() => {
         let array = responseAsJson.dataset.data.reverse();
         for (let i = 0; i < array.length; i++) {
             labelsY.push(array[i][0]);
             labelsX.push(array[i][1]);
-            //  for (let i = array.length - 1; i > 0; i--) {
-            // labelsY.push(array[i][0]);
-            // labelsX.push(array[i][1]);
-
-
 
         }
-
-
 
         const data = {
             labels: labelsY,
@@ -207,10 +206,6 @@ function chart() {
             options: {}
         };
 
-        if (myChart != null) {
-            myChart.destroy();
-        };
-
         myChart = new Chart(
             document.getElementById('myChart'),
             config
@@ -225,16 +220,17 @@ function chart() {
 
 
 function chartBar() {
+    if (myChartBar != null) {
+        myChartBar.destroy();
+        labelsBarX = [];
+        labelsBarY = [];
+    };
+
     setTimeout(() => {
         let array = responseAsJson.dataset.data;
         for (let i = 0; i < array.length; i++) {
             labelsBarY.push(array[i][0]);
             labelsBarX.push(array[i][1]);
-            // for (let i = array.length - 1; i > 0; i--) {
-            //     labelsY.push(array[i][0]);
-            //     labelsX.push(array[i][1]);
-
-
 
         }
 
@@ -255,10 +251,6 @@ function chartBar() {
             type: 'bar',
             data: data,
             options: {}
-        };
-
-        if (myChartBar != null) {
-            myChartBar.destroy();
         };
 
         myChartBar = new Chart(

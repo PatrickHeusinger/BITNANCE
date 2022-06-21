@@ -1,7 +1,6 @@
     body {
         margin: 0;
         color: white !important;
-        font-family: 'Raleway'!important;
     }
     
     .navbar-toggler {
@@ -10,12 +9,12 @@
         background-color: rgba(255, 255, 255, 0.224) !important;
     }
     
-    .navbar-brand img {
-        width: 100px;
-    }
-    
     .nav-item a {
         font-weight: bold;
+    }
+    
+    input {
+        outline: none;
     }
     
     .offcanvas {
@@ -35,14 +34,12 @@
     .header {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        width: 200px;
     }
     
     .header img {
         width: 50px;
-        padding-top: 30px;
-        margin-right: 20px;
+        padding-top: 25px;
+        margin-right: 10px;
         margin-left: 50px;
     }
     
@@ -391,10 +388,26 @@
     @media(max-width:1000px) {
         .headDiv {
             background-image: url(img/wallpaper.png);
-            background-size: auto;
-            height: 100vh;
+            background-size: cover;
             text-align: center;
+            height: 100vh;
             width: 100%;
+        }
+        .header {
+            padding-top: 50px;
+        }
+        .header img {
+            width: 50px;
+            padding-top: 25px;
+            margin-left: 0px;
+        }
+        .responsiveCenter {
+            display: flex;
+            justify-content: center;
+        }
+        .navbar-toggler {
+            margin-right: 10px;
+            margin-top: 10px;
         }
         .icons {
             flex-direction: column;
@@ -418,9 +431,15 @@
             margin-top: 50px;
             box-shadow: 0px 0px 1px rgb(211 206 206 / 50%);
         }
+        .news {
+            width: 95%;
+        }
         .coin {
             margin: 0px;
             padding: 0;
+        }
+        .date {
+            flex-direction: column;
         }
         .buttonDiv {
             display: flex;
