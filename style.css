@@ -280,12 +280,13 @@
     .convertDiv {
         text-align: center;
         background-color: aqua;
-        height: 800px;
+        padding-bottom: 50px;
     }
     
     .convertDiv h2 {
         color: rgb(4, 19, 105);
         padding-top: 50px;
+        margin-bottom: 0 !important;
     }
     
     .exchangeImg:hover {
