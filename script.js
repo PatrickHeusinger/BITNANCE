@@ -295,7 +295,7 @@ function changeX() {
 function disabledAlert() {
     let alert = document.getElementById('alert');
     alert.innerHTML = '';
-    alert.innerHTML = 'Choose start and end date please!';
+    alert.innerHTML = 'Choose start and end date please !';
     setTimeout(() => {
         alert.innerHTML = '';
     }, 2000);
