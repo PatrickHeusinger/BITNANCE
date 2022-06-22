@@ -431,6 +431,9 @@
         .calender span {
             font-size: 14px;
         }
+        .calender-top {
+            padding-bottom: 0;
+        }
         .date {
             flex-direction: column;
         }
