@@ -17,19 +17,14 @@ async function includeHTML() {
 const API_KEY = '6zXQ5n3xF-ZKs-mHV_yZ';
 let ID;
 let url;
-let today = new Date();
+//let today = new Date();
 let startDate = '';
 let endDate = '';
-let valueMin;
-let valueMax;
-let valueAvg;
-let bitCurrency;
-const bitcoin = 0;
+let bitCurrency = 0;
 let myChart = null;
 let myChartBar = null;
 let currentDay;
 let bit = [];
-let bit2 = [];
 let labelsY = [];
 let labelsX = [];
 let labelsBarX = [];
@@ -37,35 +32,9 @@ let labelsBarY = [];
 let responseAsJson;
 
 
-
-
-/*function fetch() {
-    var requestURL = 'https://api.exchangerate.host/latest';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-
-    request.onload = function() {
-        var response = request.response;
-        console.log(response);
-    }
-
-}*/
-
-/*async function loadBitValues() {
-    let url2 = `https://data.nasdaq.com/api/v3/datasets/BITFINEX/BTCUSD?start_date=${startDate2}&end_date=${endDate2}&api_key=${API_KEY}`;
-    let response2 = await fetch(url2);
-    responseAsJson2 = await response2.json();
-    bit2.push(responseAsJson2)
-    bitToday(responseAsJson2);
-
-    console.log(responseAsJson2);
-}*/
-
 async function loadBitCoin() {
     let url = `https://data.nasdaq.com/api/v3/datasets/BITFINEX/BTCUSD?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
-    //  let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
+    //let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
     let response = await fetch(url);
     responseAsJson = await response.json();
     bit.push(responseAsJson);
@@ -80,16 +49,25 @@ function bitToday(responseAsJson) {
     let available = responseAsJson['dataset']['oldest_available_date'];
     let newest = responseAsJson['dataset']['newest_available_date'];
     currentDay = newest
-    document.getElementById('bitToday').innerHTML = bitCoinToday.toLocaleString('en-US');
-    bitCurrency = bitCoinToday;
     document.getElementById('refresh').innerHTML = refresh;
     document.getElementById('update').innerHTML = available;
     document.getElementById('newest').innerHTML = newest;
-    document.getElementById('exchangeRate').innerHTML = bitCoinToday.toLocaleString('en-US');
     document.getElementById('exchangeDate').innerHTML = refresh;
-    // document.getElementById('exchangeNewDate').innerHTML = newest;
+    saveBitToday(bitCoinToday);
+
     console.log(refresh);
 }
+
+function saveBitToday(bitCoinToday) {
+    if (bitCurrency == 0) {
+        bitCurrency = bitCoinToday;
+        document.getElementById('bitToday').innerHTML = bitCoinToday.toLocaleString('en-US');
+        document.getElementById('exchangeRate').innerHTML = bitCoinToday.toLocaleString('en-US');
+
+    }
+}
+
+
 
 function bitTable() {
     let tableData = document.getElementById('table');
@@ -139,7 +117,6 @@ async function updateDate() {
     bitTable();
     loadingComplete();
     document.getElementById('canvas').classList.remove('d-none');
-    //   document.getElementById('exchange').classList.remove('d-none');
     document.getElementById('canvas').scrollIntoView({
         behavior: 'smooth'
     });

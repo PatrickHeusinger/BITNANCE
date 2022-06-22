@@ -320,7 +320,7 @@
     }
     
     .copyright {
-        padding-left: 130px;
+        padding-left: 100px;
     }
     
     .footerLeft img {
@@ -420,6 +420,7 @@
             opacity: 90%;
             width: 100%;
             margin-top: 50px;
+            padding: 0;
             box-shadow: 0px 0px 1px rgb(211 206 206 / 50%);
         }
         .news {
@@ -445,11 +446,40 @@
         }
         .footerLeft {
             padding: 0;
+            padding-top: 25px;
         }
         .footerRight {
             padding: 0;
         }
         .copyright {
             display: none;
+        }
+        .stockToday {
+            font-size: 14px;
+        }
+        th,
+        td {
+            font-size: 12px;
+        }
+    }
+    
+    @media(max-width:380px) {
+        .navigation {
+            height: 120px;
+            margin: 10px;
+        }
+        .navigation span {
+            font-size: 14px;
+        }
+        .icons {
+            margin-top: 10px;
+        }
+        .icons img {
+            margin: 20px 50px 0 50px;
+            padding: 5px;
+            width: 50px;
+        }
+        .exchangeOfToday {
+            font-size: 14px;
         }
     }
