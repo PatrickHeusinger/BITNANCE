@@ -292,6 +292,15 @@ function changeX() {
 `;
 }
 
+function disabledAlert() {
+    let alert = document.getElementById('alert');
+    alert.innerHTML = '';
+    alert.innerHTML = 'Choose start and end date please!';
+    setTimeout(() => {
+        alert.innerHTML = '';
+    }, 2000);
+}
+
 function scrollToExchange() {
     document.getElementById('convertSection').scrollIntoView({
         behavior: 'smooth'
@@ -338,6 +347,7 @@ setTimeout(() => {
 function checkDatePicker() {
     if ($('#startData').val() != "" && $('#endData').val() != "") {
         $('#submit').removeAttr('disabled');
+        document.getElementById('shield').classList.remove('alertButton');
     } else {
         $('#submit').attr('disabled', true);
     }
