@@ -461,6 +461,10 @@
         td {
             font-size: 12px;
         }
+        #myChart {
+            width: 100%;
+            padding: 0;
+        }
     }
     
     @media(max-width:380px) {
