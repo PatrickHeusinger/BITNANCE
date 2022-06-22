@@ -31,6 +31,8 @@ let labelsBarY = [];
 let responseAsJson;
 
 
+/*---------------------------------------fetch--load--save---------------------------------------------------------------------------------*/
+
 async function loadBitCoin() {
     let url = `https://data.nasdaq.com/api/v3/datasets/BITFINEX/BTCUSD?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
     //let url = `https://data.nasdaq.com/api/v3/datasets/BCHAIN/MKPRU?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
@@ -62,6 +64,7 @@ function saveBitToday(bitCoinToday) {
     }
 }
 
+/*------------------------------------------------create--table-------------------------------------------------*/
 
 function bitTable() {
     let tableData = document.getElementById('table');
@@ -98,6 +101,7 @@ function bitTable() {
     }
 }
 
+/*--------------------------------------update--charts--and--table------------------------------------------*/
 
 async function updateDate() {
     loading();
@@ -114,6 +118,8 @@ async function updateDate() {
     });
 }
 
+/*---------------------------------------loading--animation-------------------------------------------------*/
+
 function loading() {
     document.getElementById('progress').classList.remove('d-none');
 }
@@ -121,6 +127,8 @@ function loading() {
 function loadingComplete() {
     document.getElementById('progress').classList.add('d-none');
 }
+
+/*------------------------------------create--and--change--charts--------------------------------------------*/
 
 function showChartOne() {
     document.getElementById('myChart').classList.remove('d-none');
@@ -246,6 +254,7 @@ function chartBar() {
     }, 100);
 }
 
+/*---------------------------------------bitcoin---converter------------------------------------------------*/
 
 function convertX() {
     let x = document.getElementById('curr_usd').value * bitCurrency;
@@ -292,14 +301,8 @@ function changeX() {
 `;
 }
 
-function disabledAlert() {
-    let alert = document.getElementById('alert');
-    alert.innerHTML = '';
-    alert.innerHTML = 'Choose start and end date please !';
-    setTimeout(() => {
-        alert.innerHTML = '';
-    }, 2000);
-}
+
+/*------------------------------------------------------------navigation--------------------------------------*/
 
 function scrollToExchange() {
     document.getElementById('convertSection').scrollIntoView({
@@ -319,19 +322,19 @@ function scrollToHistory() {
     });
 }
 
-/*---------------------------set-datepicker---------------------------*/
+/*---------------------------set--datepicker--enable--input-------------------------------------------------------*/
 
 $(function() {
-    var dtToday = new Date();
-    var month = dtToday.getMonth() + 1;
-    var day = dtToday.getDate() - 1;
+    let dtToday = new Date();
+    let month = dtToday.getMonth() + 1;
+    let day = dtToday.getDate() - 1;
     var year = dtToday.getFullYear();
     if (month < 10)
         month = '0' + month.toString();
     if (day < 10)
         day = '0' + day.toString();
 
-    var minDate = year + '-' + month + '-' + day;
+    let minDate = year + '-' + month + '-' + day;
 
     $('#endData').attr('max', minDate);
     $('#startData').attr('max', minDate);
@@ -351,4 +354,13 @@ function checkDatePicker() {
     } else {
         $('#submit').attr('disabled', true);
     }
+}
+
+function disabledAlert() {
+    let alert = document.getElementById('alert');
+    alert.innerHTML = '';
+    alert.innerHTML = 'Choose start and end date please !';
+    setTimeout(() => {
+        alert.innerHTML = '';
+    }, 2000);
 }
