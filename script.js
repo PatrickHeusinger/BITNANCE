@@ -17,7 +17,6 @@ async function includeHTML() {
 const API_KEY = '6zXQ5n3xF-ZKs-mHV_yZ';
 let ID;
 let url;
-//let today = new Date();
 let startDate = '';
 let endDate = '';
 let bitCurrency = 0;
@@ -40,7 +39,6 @@ async function loadBitCoin() {
     bit.push(responseAsJson);
     bitToday(responseAsJson);
 
-    console.log(responseAsJson);
 }
 
 function bitToday(responseAsJson) {
@@ -54,8 +52,6 @@ function bitToday(responseAsJson) {
     document.getElementById('newest').innerHTML = newest;
     document.getElementById('exchangeDate').innerHTML = refresh;
     saveBitToday(bitCoinToday);
-
-    console.log(refresh);
 }
 
 function saveBitToday(bitCoinToday) {
@@ -63,10 +59,8 @@ function saveBitToday(bitCoinToday) {
         bitCurrency = bitCoinToday;
         document.getElementById('bitToday').innerHTML = bitCoinToday.toLocaleString('en-US');
         document.getElementById('exchangeRate').innerHTML = bitCoinToday.toLocaleString('en-US');
-
     }
 }
-
 
 
 function bitTable() {
@@ -82,7 +76,6 @@ function bitTable() {
     <th>Mid</th>
     <th>High</th>
     <th>Last</th>
-    
     </tr> 
     </tbody>
     </table>
@@ -97,15 +90,14 @@ function bitTable() {
                 <td>${responseData[i][3].toFixed(2)}</td>
                 <td>${responseData[i][1].toFixed(2)}</td>
                 <td>${responseData[i][4].toFixed(2)}</td>
-                    
                 </tr>
             </tbody>
         </table>
         `;
 
     }
-
 }
+
 
 async function updateDate() {
     loading();
@@ -150,7 +142,6 @@ function showTable() {
 }
 
 
-
 function chart() {
     if (myChart != null) {
         myChart.destroy();
@@ -175,7 +166,6 @@ function chart() {
                 data: labelsX,
             }]
         };
-
 
         const config = {
             type: 'line',
@@ -203,10 +193,7 @@ function chart() {
 
 
     }, 100);
-
-
 }
-
 
 
 function chartBar() {
@@ -221,10 +208,7 @@ function chartBar() {
         for (let i = 0; i < array.length; i++) {
             labelsBarY.push(array[i][0]);
             labelsBarX.push(array[i][1]);
-
         }
-
-
 
         const data = {
             labels: labelsBarY,
@@ -235,7 +219,6 @@ function chartBar() {
                 data: labelsBarX,
             }]
         };
-
 
         const config = {
             type: 'bar',
@@ -261,8 +244,6 @@ function chartBar() {
             config
         );
     }, 100);
-
-
 }
 
 
@@ -283,18 +264,14 @@ function changeY() {
     change.innerHTML = `
 
 <div class="currencyField">
-
 <input oninput="convertY()" id="curr_usd" type="text" required>
 <span>USD</span>
 </div>
 <img onclick="changeX()"class="exchangeImg" src="img/converter.png">
 <div class="currencyField">
-
 <input id="curr_bitcoin" type="text">
 <span>BIT</span>
 </div>
-
-
 `;
 }
 
@@ -304,18 +281,14 @@ function changeX() {
     change.innerHTML = `
 
 <div class="currencyField">
-
 <input oninput="convertX()" id="curr_usd" type="text" required>
 <span>BIT</span>
 </div>
 <img onclick="changeY()"class="exchangeImg" src="img/converter.png">
 <div class="currencyField">
-
 <input id="curr_bitcoin" type="text">
 <span>USD</span>
 </div>
-
-
 `;
 }
 
@@ -360,7 +333,6 @@ setTimeout(() => {
     picker.addEventListener('change', checkDatePicker);
 
 }, 2000);
-
 
 
 function checkDatePicker() {
