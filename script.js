@@ -41,6 +41,7 @@ async function loadBitCoin() {
     bit.push(responseAsJson);
     bitToday(responseAsJson);
 
+
 }
 
 function bitToday(responseAsJson) {
@@ -54,6 +55,7 @@ function bitToday(responseAsJson) {
     document.getElementById('newest').innerHTML = newest;
     document.getElementById('exchangeDate').innerHTML = refresh;
     saveBitToday(bitCoinToday);
+
 }
 
 function saveBitToday(bitCoinToday) {
@@ -364,3 +366,11 @@ function disabledAlert() {
         alert.innerHTML = '';
     }, 2000);
 }
+/*
+function setDatePicker() {
+    ['startData', 'endData'].forEach((date) => {
+        document.getElementById(date).setAttribute('max', currentDay);
+        document.getElementById(date).value = currentDay;
+    });
+}
+*/
