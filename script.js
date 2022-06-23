@@ -322,7 +322,7 @@ function scrollToHistory() {
     });
 }
 
-/*---------------------------set--datepicker--enable--input-------------------------------------------------------*/
+/*---------------------------set--datepicker--&--enable--input-------------------------------------------------------*/
 
 $(function() {
     let dtToday = new Date();
